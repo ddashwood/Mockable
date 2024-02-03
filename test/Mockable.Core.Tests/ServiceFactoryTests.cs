@@ -1,5 +1,6 @@
 using Mockable.Core.Tests.TestDependencies;
 using Mockable.Core.Tests.TestServices;
+using Moq;
 
 namespace Mockable.Core.Tests;
 
@@ -69,5 +70,30 @@ public class ServiceFactoryTests
         Assert.IsType<ServiceWithOneConstructorParameter>(result);
         Assert.Same(mock.Object, result.Dependency1);
         Assert.Same(configurator, configurators.Dependency1);
+    }
+
+    [Fact]
+    public void ConfiguratorWithMissingParameterTest()
+    {
+        // Arrange
+        var factory = new ServiceFactoryConcrete();
+        Mock<IDependency1> mock1;
+        Mock<IDependency2> mock2;
+        object configurator1 = mock1 = new();
+        object configurator2 = mock2 = new();
+        factory.MockCreatorMock.Setup(m => m.GetMockOf(typeof(IDependency1), out configurator1)).Returns(mock1.Object);
+        factory.MockCreatorMock.Setup(m => m.GetMockOf(typeof(IDependency2), out configurator2)).Returns(mock2.Object);
+
+        // Act
+        var result = factory.Create<ServiceWithTwoConstructorParameters, ServiceWithTwoConstructorParameterConfiguratorsWithMissingParameter>(out var configurators);
+
+        // Assert
+        Assert.IsType<ServiceWithTwoConstructorParameters>(result);
+        Assert.Same(mock1.Object, result.Dependency1);
+        Assert.Same(mock2.Object, result.Dependency2);
+        Assert.Same(configurator1, configurators.Dependency1Configurator);
+
+        // There is no Dependency2Configurator on the configurators object
+        // Assert.Same(configurator2, configurators.Dependency2Configurator);
     }
 }
