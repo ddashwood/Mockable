@@ -14,7 +14,7 @@ internal class ServiceWithTwoConstructorParameters
     }
 }
 
-public class ServiceWithTwoConstructorParameterConfiguratorsWithMissingParameter
+public class ServiceWithTwoConstructorParametersConfiguratorsWithMissingParameter
 {
     public object Dependency1Configurator { get; set; } = null!;
 }

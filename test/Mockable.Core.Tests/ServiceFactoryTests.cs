@@ -85,7 +85,7 @@ public class ServiceFactoryTests
         factory.MockCreatorMock.Setup(m => m.GetMockOf(typeof(IDependency2), out configurator2)).Returns(mock2.Object);
 
         // Act
-        var result = factory.Create<ServiceWithTwoConstructorParameters, ServiceWithTwoConstructorParameterConfiguratorsWithMissingParameter>(out var configurators);
+        var result = factory.Create<ServiceWithTwoConstructorParameters, ServiceWithTwoConstructorParametersConfiguratorsWithMissingParameter>(out var configurators);
 
         // Assert
         Assert.IsType<ServiceWithTwoConstructorParameters>(result);
