@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{0690
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockable.Example.UkDates", "example\Mockable.Example.UkDates\Mockable.Example.UkDates.csproj", "{E611ECE5-B049-4367-A020-6401919EE548}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockable.Example.UkDates.Tests", "example\Mockable.Example.UkDates.Tests\Mockable.Example.UkDates.Tests.csproj", "{B8F70BAB-2241-40F4-812A-03331E948328}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{E611ECE5-B049-4367-A020-6401919EE548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E611ECE5-B049-4367-A020-6401919EE548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E611ECE5-B049-4367-A020-6401919EE548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F70BAB-2241-40F4-812A-03331E948328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F70BAB-2241-40F4-812A-03331E948328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F70BAB-2241-40F4-812A-03331E948328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F70BAB-2241-40F4-812A-03331E948328}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{E1412731-8901-4F24-B64E-CBBF19565442} = {F2A86F8F-6CDC-480D-8035-594C07B41203}
 		{1FABF243-5C6E-487A-8907-C4D01C9C2231} = {F2A86F8F-6CDC-480D-8035-594C07B41203}
 		{E611ECE5-B049-4367-A020-6401919EE548} = {0690E034-E670-4AC1-B8DC-7D15781C629E}
+		{B8F70BAB-2241-40F4-812A-03331E948328} = {0690E034-E670-4AC1-B8DC-7D15781C629E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0862ECC-FB83-4A18-9E0A-3CE5A4BE7686}

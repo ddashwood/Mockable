@@ -38,7 +38,7 @@ internal class DateService : IDateService
         result += GetBankHolidayDescription(date, bankHolidays.scotland, "Scotland");
         result += GetBankHolidayDescription(date, bankHolidays.northernireland, "Northern Ireland");
 
-        return result;
+        return result.Trim();
     }
 
     private string? GetBankHolidayDescription(DateOnly date, Division divisionHolidays, string divisionName)
