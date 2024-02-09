@@ -1,0 +1,52 @@
+﻿@using System.Globalization
+@model Mockable.Example.UkDates.Models.DateViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+<h3>Please enter a date:</h3>
+<form asp-action="Index">
+    <div class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+            <label for="dateSelect">Date</label>
+            <select asp-for="Date" class="form-select" aria-label="Date">
+                @for (int i = 1; i <= 31; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <label for="dateSelect">Month</label>
+            <select asp-for="Month" class="form-select" aria-label="Month">
+                @for (int i = 1; i <= 12; i++)
+                {
+                    <option value="@i">@(new DateTime(2024, i, 1).ToString("MMMM", CultureInfo.InvariantCulture))</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <label for="dateSelect">Year</label>
+            <select asp-for="Year" class="form-select" aria-label="Year">
+                @for (int i = -2; i <= 2; i++)
+                {
+                    <option value="@(DateTime.Today.Year + i)">@(DateTime.Today.Year + i)</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row gy-2 gx-3 align-items-center mt-2">
+        <div class="form-group">
+            <input type="submit" value="Get Information" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+@if(!string.IsNullOrWhiteSpace(Model?.Description))
+{
+    <h4 class="mt-4">Information:</h4>
+    <p>@Model.Description</p>
+}
