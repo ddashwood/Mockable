@@ -6,14 +6,18 @@ namespace Mockable.Example.UkDates.Services;
 internal class DateService : IDateService
 {
     private readonly IBankHolidaysService _bankHolidaysService;
+    private readonly ILogger<DateService> _logger;
 
-    public DateService(IBankHolidaysService bankHolidaysService)
+    public DateService(IBankHolidaysService bankHolidaysService, ILogger<DateService> logger)
     {
         _bankHolidaysService = bankHolidaysService;
+        _logger = logger;
     }
 
     public async Task<string> GetDateDescriptionAsync(int day, int month, int year)
     {
+        _logger.LogInformation("Getting date information for {day} {month} {year}.", day, month, year);
+
         DateOnly date;
 
         try
