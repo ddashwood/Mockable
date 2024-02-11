@@ -40,8 +40,8 @@ public class MoqDateServiceTests
     public async Task BankHolidayTest()
     {
         // Arrange
-        var serviceFacotry = new ServiceFactory();
-        var service = serviceFacotry.Create<DateService, MoqDateServiceConfigurators>(out var configurators);
+        var serviceFactory = new ServiceFactory();
+        var service = serviceFactory.Create<DateService, MoqDateServiceConfigurators>(out var configurators);
 
         var bankHolidays = new BankHolidayCollection
         {
@@ -68,8 +68,8 @@ public class MoqDateServiceTests
     public async Task BankHolidayWithNoteTest()
     {
         // Arrange
-        var serviceFacotry = new ServiceFactory();
-        var service = serviceFacotry.Create<DateService, MoqDateServiceConfigurators>(out var configurators);
+        var serviceFactory = new ServiceFactory();
+        var service = serviceFactory.Create<DateService, MoqDateServiceConfigurators>(out var configurators);
 
         var bankHolidays = new BankHolidayCollection
         {

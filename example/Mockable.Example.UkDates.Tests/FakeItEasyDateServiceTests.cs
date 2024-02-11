@@ -41,8 +41,8 @@ public class FakeItEasyDateServiceTests
     public async Task BankHolidayTest()
     {
         // Arrange
-        var serviceFacotry = new ServiceFactory();
-        var service = serviceFacotry.Create<DateService, FakeItEasyDateServiceConfigurators>(out var configurators);
+        var serviceFactory = new ServiceFactory();
+        var service = serviceFactory.Create<DateService, FakeItEasyDateServiceConfigurators>(out var configurators);
 
         var bankHolidays = new BankHolidayCollection
         {
@@ -69,8 +69,8 @@ public class FakeItEasyDateServiceTests
     public async Task BankHolidayWithNoteTest()
     {
         // Arrange
-        var serviceFacotry = new ServiceFactory();
-        var service = serviceFacotry.Create<DateService, FakeItEasyDateServiceConfigurators>(out var configurators);
+        var serviceFactory = new ServiceFactory();
+        var service = serviceFactory.Create<DateService, FakeItEasyDateServiceConfigurators>(out var configurators);
 
         var bankHolidays = new BankHolidayCollection
         {
