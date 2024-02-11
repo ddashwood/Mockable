@@ -14,9 +14,9 @@ internal class DateService : IDateService
         _logger = logger;
     }
 
-    public async Task<string> GetDateDescriptionAsync(int day, int month, int year)
+    public async Task<string> GetDateDescriptionAsync(int year, int month, int day)
     {
-        _logger.LogInformation("Getting date information for {day} {month} {year}.", day, month, year);
+        _logger.LogInformation("Getting date information for {year} {month} {day}.", year, month, day);
 
         DateOnly date;
 

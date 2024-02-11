@@ -16,7 +16,7 @@ public class DateServiceTests
         var service = serviceFactory.Create<DateService>();
 
         // Act
-        var result = await service.GetDateDescriptionAsync(30, 2, 2024);
+        var result = await service.GetDateDescriptionAsync(2024, 2, 30);
 
         // Assert
         Assert.Equal("The date supplied is not a valid date", result);
@@ -30,7 +30,7 @@ public class DateServiceTests
         var service = serviceFactory.Create<DateService>();
 
         // Act
-        var result = await service.GetDateDescriptionAsync(1, 2, 2024);
+        var result = await service.GetDateDescriptionAsync(2024, 2, 1);
 
         // Assert
         Assert.Equal("1 February 2024 is a Thursday. There was a problem fetching the bank holidays.", result);
@@ -58,7 +58,7 @@ public class DateServiceTests
         configurators.BankHolidaysService.Setup(m => m.GetBankHolidaysAsync()).ReturnsAsync(bankHolidays);
 
         // Act
-        var result = await service.GetDateDescriptionAsync(25, 12, 2023);
+        var result = await service.GetDateDescriptionAsync(2023, 12, 25);
 
         // Assert
         Assert.Equal("25 December 2023 is a Monday. In England and Wales, this is Christmas Day.", result);
@@ -86,7 +86,7 @@ public class DateServiceTests
         configurators.BankHolidaysService.Setup(m => m.GetBankHolidaysAsync()).ReturnsAsync(bankHolidays);
 
         // Act
-        var result = await service.GetDateDescriptionAsync(27, 12, 2022);
+        var result = await service.GetDateDescriptionAsync(2022, 12, 27);
 
         // Assert
         Assert.Equal("27 December 2022 is a Tuesday. In England and Wales, this is Christmas Day (Substitute).", result);

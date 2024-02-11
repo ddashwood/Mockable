@@ -24,7 +24,7 @@ namespace Mockable.Example.UkDates.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(DateViewModel dateTimeVm)
         {
-            dateTimeVm.Description = await _dateService.GetDateDescriptionAsync(dateTimeVm.Date, dateTimeVm.Month, dateTimeVm.Year);
+            dateTimeVm.Description = await _dateService.GetDateDescriptionAsync(dateTimeVm.Year, dateTimeVm.Month, dateTimeVm.Date);
             return View(dateTimeVm);
         }
 
