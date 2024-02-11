@@ -6,7 +6,7 @@ using Moq;
 
 namespace Mockable.Example.UkDates.Tests;
 
-public class DateServiceTests
+public class MoqDateServiceTests
 {
     [Fact]
     public async Task InvalidDateTest()
@@ -41,7 +41,7 @@ public class DateServiceTests
     {
         // Arrange
         var serviceFacotry = new ServiceFactory();
-        var service = serviceFacotry.Create<DateService, DateServiceConfigurators>(out var configurators);
+        var service = serviceFacotry.Create<DateService, MoqDateServiceConfigurators>(out var configurators);
 
         var bankHolidays = new BankHolidayCollection
         {
@@ -69,7 +69,7 @@ public class DateServiceTests
     {
         // Arrange
         var serviceFacotry = new ServiceFactory();
-        var service = serviceFacotry.Create<DateService, DateServiceConfigurators>(out var configurators);
+        var service = serviceFacotry.Create<DateService, MoqDateServiceConfigurators>(out var configurators);
 
         var bankHolidays = new BankHolidayCollection
         {

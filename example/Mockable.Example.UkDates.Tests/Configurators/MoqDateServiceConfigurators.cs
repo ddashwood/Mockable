@@ -3,7 +3,7 @@ using Moq;
 
 namespace Mockable.Example.UkDates.Tests.Configurators;
 
-internal class DateServiceConfigurators
+internal class MoqDateServiceConfigurators
 {
     public Mock<IBankHolidaysService> BankHolidaysService { get; set; } = null!;
 }
