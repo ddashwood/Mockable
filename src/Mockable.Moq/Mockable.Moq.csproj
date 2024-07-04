@@ -14,7 +14,7 @@
     <PackageIcon>mockable.png</PackageIcon>
     <RepositoryUrl>https://github.com/ddashwood/Mockable</RepositoryUrl>
     <NeutralLanguage>en-GB</NeutralLanguage>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageTags>mockable;tdd;mock;mocking;test;testing;unittest;unittesting</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
