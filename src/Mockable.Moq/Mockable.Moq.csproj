@@ -4,6 +4,20 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Mockable</Title>
+    <Authors>Dean Dashwood</Authors>
+    <Company>N/A</Company>
+    <Description>Allows your class under test to be created, automatically creating mocks for all its constructor parameters</Description>
+    <Copyright>©2024 Dean Dashwood</Copyright>
+    <PackageProjectUrl>https://github.com/ddashwood/Mockable</PackageProjectUrl>
+    <PackageIcon>mockable.png</PackageIcon>
+    <RepositoryUrl>https://github.com/ddashwood/Mockable</RepositoryUrl>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <Version>0.1.0</Version>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageTags>mockable;tdd;mock;mocking;test;testing;unittest;unittesting</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +26,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Mockable.Core\Mockable.Core.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\mockable.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

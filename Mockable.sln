@@ -15,13 +15,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockable.Moq.Tests", "test\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{0690E034-E670-4AC1-B8DC-7D15781C629E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockable.Example.UkDates", "example\Mockable.Example.UkDates\Mockable.Example.UkDates.csproj", "{E611ECE5-B049-4367-A020-6401919EE548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockable.Example.UkDates", "example\Mockable.Example.UkDates\Mockable.Example.UkDates.csproj", "{E611ECE5-B049-4367-A020-6401919EE548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockable.Example.UkDates.Tests", "example\Mockable.Example.UkDates.Tests\Mockable.Example.UkDates.Tests.csproj", "{B8F70BAB-2241-40F4-812A-03331E948328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockable.Example.UkDates.Tests", "example\Mockable.Example.UkDates.Tests\Mockable.Example.UkDates.Tests.csproj", "{B8F70BAB-2241-40F4-812A-03331E948328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockable.FakeItEasy", "src\Mockable.FakeItEasy\Mockable.FakeItEasy.csproj", "{C83AA8B8-AC7E-4381-90E3-F5FBFD44F9EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockable.FakeItEasy", "src\Mockable.FakeItEasy\Mockable.FakeItEasy.csproj", "{C83AA8B8-AC7E-4381-90E3-F5FBFD44F9EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockable.FakeItEasy.Tests", "test\Mockable.FakeItEasy.Tests\Mockable.FakeItEasy.Tests.csproj", "{262544DB-0B08-4180-8F7E-09E5AA13A8CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockable.FakeItEasy.Tests", "test\Mockable.FakeItEasy.Tests\Mockable.FakeItEasy.Tests.csproj", "{262544DB-0B08-4180-8F7E-09E5AA13A8CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D023A7C-21A3-4699-8559-00CB3C5B0FD5}"
+	ProjectSection(SolutionItems) = preProject
+		mockable.png = mockable.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
