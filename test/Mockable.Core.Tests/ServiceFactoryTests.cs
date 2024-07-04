@@ -96,4 +96,29 @@ public class ServiceFactoryTests
         // There is no Dependency2Configurator on the configurators object
         // Assert.Same(configurator2, configurators.Dependency2Configurator);
     }
+
+    [Fact]
+    public void ConfiguratorWithNamedParameterTest()
+    {
+        // Arrange
+        var factory = new ServiceFactoryConcrete();
+        Mock<IDependency1> mock1;
+        IDependency2 mock2;
+        object configurator1 = mock1 = new();
+        mock2 = new Mock<IDependency2>().Object;
+        factory.MockCreatorMock.Setup(m => m.GetMockOf(typeof(IDependency1), out configurator1)).Returns(mock1.Object);
+
+        // Act
+        var result = factory.Create<ServiceWithTwoConstructorParameters, ServiceWithTwoConstructorParametersConfiguratorsWithMissingParameter>
+            (out var configurators, new NamedParameter { Name = "dependency2", Value = mock2 });
+
+        // Assert
+        Assert.IsType<ServiceWithTwoConstructorParameters>(result);
+        Assert.Same(mock1.Object, result.Dependency1);
+        Assert.Same(mock2, result.Dependency2);
+        Assert.Same(configurator1, configurators.Dependency1Configurator);
+
+        // There is no Dependency2Configurator on the configurators object
+        // Assert.Same(configurator2, configurators.Dependency2Configurator);
+    }
 }

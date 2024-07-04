@@ -12,21 +12,21 @@ public abstract class ServiceFactoryBase
         _mockCreator = mockCreator;
     }
 
-    public T Create<T, TConfigurators>(out TConfigurators configurators) where TConfigurators : new()
+    public T Create<T, TConfigurators>(out TConfigurators configurators, params NamedParameter[] namedParameters) where TConfigurators : new()
     {
         configurators = new(); 
-        return Create<T>(configurators);
+        return Create<T>(configurators, namedParameters);
     }
 
-    public T Create<T>()
+    public T Create<T>(params NamedParameter[] namedParameters)
     {
-        return Create<T>(null);
+        return Create<T>(null, namedParameters);
     }
 
-    private T Create<T>(object? configurators)
+    private T Create<T>(object? configurators, NamedParameter[] namedParameters)
     {
         var constructor = GetBestPublicConstructor<T>();
-        var obj = Construct<T>(constructor, configurators);
+        var obj = Construct<T>(constructor, configurators, namedParameters);
         return obj;
     }
 
@@ -48,14 +48,22 @@ public abstract class ServiceFactoryBase
         return constructors[0];
     }
 
-    private T Construct<T>(ConstructorInfo constructor, object? configurators)
+    private T Construct<T>(ConstructorInfo constructor, object? configurators, NamedParameter[] namedParameters)
     {
         var constructorParams = constructor.GetParameters();
-        var constructorArgs = new object[constructorParams.Length];
+        var constructorArgs = new object?[constructorParams.Length];
 
         for (int i = 0; i < constructorParams.Length; i++)
         {
-            constructorArgs[i] = CreateArgument(constructorParams[i].ParameterType, configurators, constructorParams[i].Name);
+            var namedParameter = namedParameters.FirstOrDefault(p => p.Name == constructorParams[i].Name);
+            if (namedParameter != null)
+            {
+                constructorArgs[i] = namedParameter.Value;
+            }
+            else
+            {
+                constructorArgs[i] = CreateArgument(constructorParams[i].ParameterType, configurators, constructorParams[i].Name);
+            }
         }
 
         return (T)constructor.Invoke(constructorArgs);
