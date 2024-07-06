@@ -42,7 +42,6 @@ steps:
     packDestination: '$(Build.ArtifactStagingDirectory)'
     versioningScheme: byBuildNumber
 
-steps:
 - task: NuGetCommand@2
   displayName: 'NuGet Push for Core'
   inputs:
