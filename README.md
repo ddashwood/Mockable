@@ -115,7 +115,7 @@ public void ExampleTest()
     var serviceFactory = new ServiceFactory();
     var objectUnderTest = serviceFactory.Create<ClassUnderTest, ClassUnderTestConfigurators>(out var configurators);
 
-    configurators.Service1.Setup(m => ...).Returns(...);
+    configurators.MyService1.Setup(m => ...).Returns(...);
 }
 ```
 
