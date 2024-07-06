@@ -36,6 +36,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: 'NuGet Pack for Core'
+  inputs:
     command: pack
     packagesToPack: '**/Mockable.Core.csproj'
     packDestination: '$(Build.ArtifactStagingDirectory)'
