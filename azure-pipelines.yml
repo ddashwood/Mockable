@@ -11,7 +11,7 @@ variables:
 
   major: '0'
   minor: '1'
-  patch: '3'
+  patch: '4'
   version: $(major).$(minor).$(patch)
 
 steps:
@@ -42,8 +42,26 @@ steps:
     versioningScheme: byEnvVar
     versionEnvVar: version
 
+- task: DotNetCoreCLI@2
+  displayName: 'NuGet Pack for Moq'
+  inputs:
+    command: pack
+    packagesToPack: '**/Mockable.Moq.csproj'
+    configuration: '$(buildConfiguration)'
+    versioningScheme: byEnvVar
+    versionEnvVar: version
+
+- task: DotNetCoreCLI@2
+  displayName: 'NuGet Pack for FakeItEasy'
+  inputs:
+    command: pack
+    packagesToPack: '**/Mockable.FakeItEasy.csproj'
+    configuration: '$(buildConfiguration)'
+    versioningScheme: byEnvVar
+    versionEnvVar: version
+
 - task: NuGetCommand@2
-  displayName: 'NuGet Push for Core'
+  displayName: 'NuGet Push'
   inputs:
     command: push
     nuGetFeedType: external
