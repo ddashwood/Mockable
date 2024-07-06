@@ -7,17 +7,42 @@ namespace Mockable.Core;
 public abstract class ServiceFactoryBase
 {
     private readonly IMockCreator _mockCreator;
+
+    /// <summary>
+    /// Creates a Service Factory.
+    /// </summary>
+    /// <param name="mockCreator">The Mock Creator to be used by this Service Factory.</param>
     public ServiceFactoryBase(IMockCreator mockCreator)
     {
         _mockCreator = mockCreator;
     }
 
+    /// <summary>
+    /// Creates a Service.
+    /// </summary>
+    /// <typeparam name="T">The data type of the Service to create.</typeparam>
+    /// <typeparam name="TConfigurators">
+    /// The data type of an object which is able to hold configurators for some or all of the Service's constructor parameters.
+    /// </typeparam>
+    /// <param name="configurators">An object which holds configurators for some or all of the Service's constructor parameters.</param>
+    /// <param name="namedParameters">
+    /// Any constructor parameters for the Service whose values are being supplied by the test, and not by Mockable.
+    /// </param>
+    /// <returns>The newly-created Service.</returns>
     public T Create<T, TConfigurators>(out TConfigurators configurators, params NamedParameter[] namedParameters) where TConfigurators : new()
     {
         configurators = new(); 
         return Create<T>(configurators, namedParameters);
     }
 
+    /// <summary>
+    /// Creates a Service.
+    /// </summary>
+    /// <typeparam name="T">The data type of the Service to create.</typeparam>
+    /// <param name="namedParameters">
+    /// Any constructor parameters for the Service whose values are being supplied by the test, and not by Mockable.
+    /// </param>
+    /// <returns>The newly-created Service.</returns>
     public T Create<T>(params NamedParameter[] namedParameters)
     {
         return Create<T>(null, namedParameters);
