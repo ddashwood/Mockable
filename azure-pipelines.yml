@@ -9,11 +9,10 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-  Major: '0'
-  Minor: '1'
-  Patch: '0'
-
-name: $(Major).$(Minor).$(Patch)
+  major: '0'
+  minor: '1'
+  patch: '0'
+  version: $(major).$(minor).$(patch)
 
 steps:
 - task: NuGetToolInstaller@1
@@ -34,13 +33,14 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'NuGet Pack for Core'
   inputs:
     command: pack
     packagesToPack: '**/Mockable.Core.csproj'
-    packDestination: '$(Build.ArtifactStagingDirectory)'
-    versioningScheme: byBuildNumber
+    configuration: '$(buildConfiguration)'
+    versioningScheme: byEnvVar
+    versionEnvVar: version
 
 - task: NuGetCommand@2
   displayName: 'NuGet Push for Core'
