@@ -1,5 +1,4 @@
-﻿
-namespace Mockable.Core.Tests;
+﻿namespace Mockable.Core.Tests;
 
 internal class ServiceFactoryConcrete : ServiceFactoryBase
 {

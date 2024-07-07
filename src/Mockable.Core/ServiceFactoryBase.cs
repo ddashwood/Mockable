@@ -1,9 +1,13 @@
-﻿
-using Mockable.Core.Exceptions;
+﻿using Mockable.Core.Exceptions;
 using System.Reflection;
 
 namespace Mockable.Core;
 
+/// <summary>
+/// A class from which Service Factories must inherit. Each Service Factory generates services
+/// using a specific mocking framework. This class contains shared functionality which is 
+/// not dependent on the specific mocking framework, which will generate those services.
+/// </summary>
 public abstract class ServiceFactoryBase
 {
     private readonly IMockCreator _mockCreator;
@@ -65,12 +69,17 @@ public abstract class ServiceFactoryBase
             throw new MockableException($"No constructor found for class {type.FullName}");
         }
 
-        if (constructors.Length > 1)
+        if (constructors.Length == 1)
         {
-            throw new MockableException($"Multiple constructors found for class {type.FullName}");
+            return constructors[0];
         }
 
-        return constructors[0];
+        var sortedConstructors = constructors.OrderByDescending(c => c.GetParameters().Length).ToList();
+        if (sortedConstructors[0].GetParameters().Length == sortedConstructors[1].GetParameters().Length)
+        {
+            throw new MockableException($"Ambiguous choice of constructor for class {type.FullName} - multiple constructors all with {sortedConstructors[0].GetParameters().Length} parameters");
+        }
+        return sortedConstructors[0];
     }
 
     private T Construct<T>(ConstructorInfo constructor, object? configurators, NamedParameter[] namedParameters)

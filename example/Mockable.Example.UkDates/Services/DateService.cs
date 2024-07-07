@@ -1,5 +1,4 @@
 ﻿using Mockable.Example.UkDates.Models;
-using System.Linq;
 
 namespace Mockable.Example.UkDates.Services;
 

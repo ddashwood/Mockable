@@ -4,7 +4,7 @@ using Mockable.Core.Exceptions;
 
 namespace Mockable.FakeItEasy;
 
-public class FakeItEasyCreator : IMockCreator
+internal class FakeItEasyCreator : IMockCreator
 {
     public object GetMockOf(Type type, out object mockConfigurator)
     {

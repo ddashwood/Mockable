@@ -1,6 +1,6 @@
+using Mockable.Core.Exceptions;
 using Mockable.Core.Tests.TestDependencies;
 using Mockable.Core.Tests.TestServices;
-using Moq;
 
 namespace Mockable.Core.Tests;
 
@@ -117,8 +117,38 @@ public class ServiceFactoryTests
         Assert.Same(mock1.Object, result.Dependency1);
         Assert.Same(mock2, result.Dependency2);
         Assert.Same(configurator1, configurators.Dependency1Configurator);
+    }
 
-        // There is no Dependency2Configurator on the configurators object
-        // Assert.Same(configurator2, configurators.Dependency2Configurator);
+    [Fact]
+    public void MultipleConstructorsTest()
+    {
+        // Arrange
+        var factory = new ServiceFactoryConcrete();
+
+        // Act
+        var result = factory.Create<ServiceWithMultipleConstructors>();
+
+        // Assesrt
+        Assert.True(result.CorrectConstructorWasCalled);
+    }
+
+    [Fact]
+    public void NoPublicConstructorsTest()
+    {
+        // Arrange
+        var factory = new ServiceFactoryConcrete();
+
+        // Act + Assert
+        Assert.Throws<MockableException>(() => factory.Create<ServiceWithNoPublicConstructors>());
+    }
+
+    [Fact]
+    public void AmbiguousConstructorChoiceTest()
+    {
+        // Arrange
+        var factory = new ServiceFactoryConcrete();
+
+        // Act + Assert
+        Assert.Throws<MockableException>(() => factory.Create<ServiceWithAmbiguousConstructorChoice>());
     }
 }
