@@ -60,6 +60,15 @@ steps:
     versioningScheme: byEnvVar
     versionEnvVar: version
 
+- task: DotNetCoreCLI@2
+  displayName: 'NuGet Pack for NSubstitute'
+  inputs:
+    command: pack
+    packagesToPack: '**/Mockable.NSubstitute.csproj'
+    configuration: '$(buildConfiguration)'
+    versioningScheme: byEnvVar
+    versionEnvVar: version
+
 - task: NuGetCommand@2
   displayName: 'NuGet Push'
   inputs:
