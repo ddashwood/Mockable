@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="FakeItEasy" Version="8.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="NSubstitute" Version="5.1.0" />
     <PackageReference Include="xunit" Version="2.9.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,6 +24,7 @@
     <ProjectReference Include="..\..\src\Mockable.Core\Mockable.Core.csproj" />
     <ProjectReference Include="..\..\src\Mockable.FakeItEasy\Mockable.FakeItEasy.csproj" />
     <ProjectReference Include="..\..\src\Mockable.Moq\Mockable.Moq.csproj" />
+    <ProjectReference Include="..\..\src\Mockable.NSubstitute\Mockable.NSubstitute.csproj" />
     <ProjectReference Include="..\Mockable.Example.UkDates\Mockable.Example.UkDates.csproj" />
   </ItemGroup>
 
