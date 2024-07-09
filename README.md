@@ -36,8 +36,8 @@ the most painful part away from you and handles it all automatically.
 
 # Show me some code!
 
-Of course! Currently, Mockable supports making mocks with either Moq or FakeItEasy.
-Add a reference to the Nuget package `Mockable.Moq` or `Mockable.FakeItEasy`, then
+Of course! Currently, Mockable supports making mocks with either Moq, FakeItEasy or NSubstitute.
+Add a reference to the Nuget package `Mockable.Moq`, `Mockable.FakeItEasy` or `Mockable.NSubstitute`, then
 add code like this:
 
 ```csharp
@@ -63,7 +63,7 @@ format for the mocking library you've chosen to use. Mockable calls these mock
 objects "configurators". The exact format of a configurator depends on the mocking
 library used.
 
-If you use FakeItEasy, the configurator is the same object as the mock. If you
+If you use FakeItEasy (or NSubstitute), the configurator is the same object as the mock. If you
 weren't using Mockable, you might write code like this:
 
 ```csharp
